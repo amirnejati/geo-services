@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package geofence;
+
+option go_package = "/.;pb";
+
+
+//The Geofence service definition.
+service Geofence {
+ rpc Point2District (Point2DistrictRequest) returns (Point2DistrictReply) {};
+}
+
+message Point2DistrictRequest {
+ float latitude = 1;
+ float longitude = 2;
+}
+
+message Point2DistrictReply {
+ string polygon_id = 1;
+ string name = 2;
+ uint32 district_no = 3;
+}
